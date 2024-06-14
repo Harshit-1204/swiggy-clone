@@ -1,5 +1,13 @@
+import Header from "./Header";
+import Body from "./Body";
+import Footer from "./Footer";
+
 const App = () =>{
-    return (<h1 className="font-thin">Inside App component</h1>)
+    return (<>
+        <Header />
+        <Body />
+        <Footer />
+    </>)
 }
 
 export default App;
