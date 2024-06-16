@@ -2,6 +2,7 @@ import { CATEGORY_CDN_URL } from "../constants";
 import LeftArrow from "../Assets/arrow-left-solid.svg";
 import RightArrow from "../Assets/arrow-Right-solid.svg";
 import { useRef,useEffect,useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Category = (props) => {
@@ -84,12 +85,12 @@ const Category = (props) => {
       >
         {allCategory.map((item) => {
           return (
-            <div key={item.id}>
+            <Link key={item.id} to="">
               <img
                 className="min-w-[200px]"
                 src={CATEGORY_CDN_URL + item?.imageId}
               ></img>
-            </div>
+            </Link>
           );
         })}
       </div>

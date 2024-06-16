@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../Assets/logo.png"
 
 const Header = () => {
@@ -11,16 +12,16 @@ const Header = () => {
 
             <div >
                 <ul className="flex justify-between items-center gap-x-20">
-                    <li>Home</li>
-                    <li>About Me</li>
-                    <li>Contact Us</li>
+                    <Link to="/">Home</Link>
+                    <Link to="/aboutme">About Me</Link>
+                    <Link to="/contactus">Contact Us</Link>
                 </ul>
             </div>
 
             <div>
                 <ul className="flex justify-between items-center gap-x-20">
-                    <li>Cart</li>
-                    <li>Login</li>
+                    <Link to="/cart">Cart</Link>
+                    <Link to="">Login</Link>
                 </ul>
             </div>
 
