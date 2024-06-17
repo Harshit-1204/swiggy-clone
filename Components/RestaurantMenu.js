@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { RESTAURANT_INFO_URL, CLOUDINARY_CDN_URL } from "../constants";
 import Star from "../Assets/star-solid.svg";
 import Bike from "../Assets/person-biking-solid.svg";
+import RestaurantItem from "./RestaurantItem";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
@@ -62,7 +63,7 @@ const RestaurantMenu = () => {
                 <p>|</p>
                 <p>
                   {" "}
-                  ₹{restaurantInfo.feeDetails.totalFee / 100} Delivery fee will
+                  ₹ {restaurantInfo.feeDetails.totalFee / 100} Delivery fee will
                   apply
                 </p>
               </div>
@@ -70,13 +71,7 @@ const RestaurantMenu = () => {
           </div>
 
 
-          <div>
-            {
-                restaurntMenu.map((item,index)=>{
-                    if(index > 1) return (<p>{item.card.card.title}</p>);
-                })
-            }
-          </div>
+          <RestaurantItem restaurntMenu = {restaurntMenu}/>
         </div>
       )}
     </>
