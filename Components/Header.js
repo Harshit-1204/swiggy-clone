@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import Logo from "../Assets/logo.png"
+import Logo from "../Assets/logo.png";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+    const cartItems = useSelector(store => store.cart.cartItems);
     return (
         <div className="flex justify-between items-center px-16 bg-orange-200" >
             <div className="w-25 h-20">
@@ -20,7 +22,7 @@ const Header = () => {
 
             <div>
                 <ul className="flex justify-between items-center gap-x-20">
-                    <Link to="/cart">Cart</Link>
+                    <Link to="/cart">Cart - {cartItems.length}</Link>
                     <Link to="">Login</Link>
                 </ul>
             </div>

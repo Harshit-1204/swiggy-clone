@@ -5,17 +5,21 @@ import AboutMe from "./AboutMe";
 import ContactUs from "./ContactUs";
 import Cart from "./Cart";
 import RestaurantMenu from "./RestaurantMenu";
+import FoodItem from "./FoodItem";
+import appStore from "../utils/appStore";
 
 import { BrowserRouter, createBrowserRouter, Outlet } from "react-router-dom";
 import AboutMe from "./AboutMe";
+import FoodItem from "./FoodItem";
+import { Provider } from "react-redux";
 
 const App = () => {
   return (
-    <>
+    <Provider store={appStore}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 
@@ -39,6 +43,9 @@ export const appRouter = createBrowserRouter([
       },{
         path: "/restaurant/:id",
         element: <RestaurantMenu />
+      },{
+        path: "/fooditem/:id",
+        element: <FoodItem />
       }
     ],
   },

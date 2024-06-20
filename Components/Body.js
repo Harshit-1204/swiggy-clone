@@ -20,9 +20,9 @@ const Body = () => {
     setFilteredRestaurant(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    console.log(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    // console.log(
+    //   json?.data?.cards[0]?.card?.card
+    // );
     setCategoryOfFood(json?.data?.cards[0]?.card?.card);
     setRestaurantChainInCity(json?.data?.cards[1]?.card?.card);
 

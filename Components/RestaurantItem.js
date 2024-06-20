@@ -9,7 +9,10 @@ const RestaurantItem = ({restaurntMenu}) => {
         <div>
             {
                 restaurntMenu.map((item,index)=>{
-                    return (<RestaurantSubItem item={item} key={index} isVisible={isVisible} setIsVisible={setIsVisible} index={index}/>);
+                    // console.log(item.card.card.itemCards);
+                    if(item.card.card.itemCards){
+                    return (<RestaurantSubItem item={item} key={item.card.card.title} isVisible={isVisible} setIsVisible={setIsVisible} index={index}/>);
+                    }
                 })
             }
           </div>

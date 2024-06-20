@@ -7,7 +7,7 @@ import RestaurantItem from "./RestaurantItem";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const [restaurantInfo, setRestaurantInfo] = useState([]);
   const [restaurntMenu, setRestaurantMenu] = useState([]);
@@ -32,8 +32,8 @@ const RestaurantMenu = () => {
         <p>Shimmer Ui loading...</p>
       ) : (
         <div>
-          {console.log(restaurantInfo)}
-          {console.log(restaurntMenu)}
+          {/* {console.log(restaurantInfo)}
+          {console.log(restaurntMenu)} */}
           <p>{restaurantInfo.name}</p>
           <div className="flex  gap-x-7">
             <div className="w-[300px] h-[200px]">
@@ -61,11 +61,13 @@ const RestaurantMenu = () => {
                 <img src={Bike} className="w-5"></img>
                 {restaurantInfo.sla.lastMileTravelString}
                 <p>|</p>
+                { restaurantInfo.feeDetails.totalFee ? 
                 <p>
-                  {" "}
+                  
                   ₹ {restaurantInfo.feeDetails.totalFee / 100} Delivery fee will
                   apply
-                </p>
+                </p> : <p>Free Delivery</p>}
+                
               </div>
             </div>
           </div>
