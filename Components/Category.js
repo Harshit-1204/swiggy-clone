@@ -60,7 +60,7 @@ const Category = (props) => {
     <div>
       {/* {console.log(props)} */}
       {/* Title of carosel */}
-      <h1>{props.items.header.title}</h1>
+      <h1 className="font-bold">{props.items.header.title}</h1>
       {/* Left Button */}
       <img
         src={LeftArrow}

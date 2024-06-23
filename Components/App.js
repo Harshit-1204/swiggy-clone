@@ -14,6 +14,7 @@ import FoodItem from "./FoodItem";
 import { Provider } from "react-redux";
 
 const App = () => {
+  
   return (
     <Provider store={appStore}>
       <Header />

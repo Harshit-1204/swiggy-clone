@@ -35,9 +35,18 @@ const Body = () => {
   const [restaurantChainInCity, setRestaurantChainInCity] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
+  const handleSearch = (text) =>{
+    const data = allRestaurant.filter((restaurant)=>{
+      console.log(restaurant.info.name.toLowerCase());
+      return (restaurant.info.name.toLowerCase().includes(text.toLowerCase())); 
+    }) 
+    console.log(data);
+    setFilteredRestaurant(data);
+  }
+
   return (
     <div className="w-10/12 max-w-[1080px] mx-auto">
-      <button className="border mx-2 px-2">Search</button>
+      
 
       {/* {What is in your mind} */}
       {categoryOfFood.length === 0 ? "" : <Category items={categoryOfFood} />}
@@ -57,8 +66,12 @@ const Body = () => {
         className="border"
         placeholder="Search restaurant.."
         value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
+        onChange={(e) => {
+          setSearchText(e.target.value);
+          handleSearch(e.target.value);
+        }}
       />
+      <button className="border mx-2 px-2" onClick={handleSearch}>Search</button>
 
       <div className="flex flex-wrap">
         {filteredRestaurant.length === 0 ? (
