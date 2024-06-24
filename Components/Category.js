@@ -57,28 +57,35 @@ const Category = (props) => {
   }, []);
 
   return (
-    <div>
-      {/* {console.log(props)} */}
-      {/* Title of carosel */}
-      <h1 className="font-bold">{props.items.header.title}</h1>
-      {/* Left Button */}
-      <img
-        src={LeftArrow}
-        className={`rounded-full w-10 border-4 border-black ${
-          isLeftEnd ? "opacity-50" : "opacity-100 cursor-pointer"
-        }`}
-        onClick={scrollLeft}
-        alt="Scroll Left"
-      />
-      {/* Right Button */}
-      <img
-        src={RightArrow}
-        className={`rounded-full w-10 border-4 border-black ${
-          isRightEnd ? "opacity-50" : "opacity-100 cursor-pointer"
-        }`}
-        onClick={scrollRight}
-        alt="Scroll Right"
-      />
+    <div className="border-b border-gray-300 pb-12 ">
+      <div className="flex justify-between">
+        <div>
+          {/* Title of carosel */}
+          <h1 className="font-bold text-2xl">{props.items.header.title}</h1>
+        </div>
+
+        <div className="flex gap-x-5">
+          {/* Left Button */}
+          <img
+            src={LeftArrow}
+            className={`rounded-full w-10 border-4 border-black ${
+              isLeftEnd ? "opacity-50" : "opacity-100 cursor-pointer"
+            }`}
+            onClick={scrollLeft}
+            alt="Scroll Left"
+          />
+          {/* Right Button */}
+          <img
+            src={RightArrow}
+            className={`rounded-full w-10 border-4 border-black ${
+              isRightEnd ? "opacity-50" : "opacity-100 cursor-pointer"
+            }`}
+            onClick={scrollRight}
+            alt="Scroll Right"
+          />
+        </div>
+      </div>
+
       <div
         id="carousel"
         ref={carouselRef}
@@ -100,7 +107,7 @@ const Category = (props) => {
           return (
             <Link key={item.id} to={"/fooditem/" + collectionId}>
               <img
-                className="min-w-[200px]"
+                className="min-w-[144px]"
                 src={CATEGORY_CDN_URL + item?.imageId}
               ></img>
             </Link>

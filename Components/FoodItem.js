@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CATEGORY_ITEM_CDN_URL } from "../constants";
-import RestaurantCard from "./Restaurantcard";
+import RestaurantCard from "../Components/RestaurantCard";
 
 const FoodItem = () => {
   const { id } = useParams();

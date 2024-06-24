@@ -45,7 +45,7 @@ const Body = () => {
   }
 
   return (
-    <div className="w-10/12 max-w-[1080px] mx-auto">
+    <div className="w-10/12 max-w-[1080px] mx-auto my-8">
       
 
       {/* {What is in your mind} */}
@@ -60,20 +60,20 @@ const Body = () => {
 
       {/* {All Filtered Restaurant} */}
 
-      <p>Restaurants with online food delivery in Mumbai</p>
+      <p className="my-10 font-bold text-2xl">Restaurants with online food delivery in Mumbai</p>
       <input
         type="text"
-        className="border"
-        placeholder="Search restaurant.."
+        className="border border-orange-500 rounded-lg py-1 px-4 text-black-400"
+        placeholder="Search restaurant..."
         value={searchText}
         onChange={(e) => {
           setSearchText(e.target.value);
           handleSearch(e.target.value);
         }}
       />
-      <button className="border mx-2 px-2" onClick={handleSearch}>Search</button>
+      <button className="border mx-2 rounded-lg py-1 px-4 bg-orange-300" onClick={handleSearch}>Search</button>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-around my-2">
         {filteredRestaurant.length === 0 ? (
           <h1>No Restaurant found</h1>
         ) : (

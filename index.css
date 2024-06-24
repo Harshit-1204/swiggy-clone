@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* *,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
  /* Custom CSS to hide scrollbar */
  .no-scrollbar::-webkit-scrollbar {
     display: none;

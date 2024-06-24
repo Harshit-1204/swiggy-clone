@@ -11,25 +11,19 @@ const Header = () => {
   useIsOnline();
 
   return (
-    <div className="flex justify-between items-center px-16 bg-orange-200 font-poppins">
-      <div className="w-25 h-20">
+    <div className="flex justify-between items-center px-20 bg-orange-300 shadow-lg">
+      <div className="w-[20%] h-20">
         <img className="w-25 h-20" src={Logo}></img>
       </div>
 
-      <div>
-        <ul className="flex justify-between items-center gap-x-20">
-          <Link to="/">Home</Link>
-          <Link to="/aboutme">About Me</Link>
-          <Link to="/contactus">Contact Us</Link>
-        </ul>
-      </div>
-
-      <div>
-        <ul className="flex justify-between items-center gap-x-20">
-          
-          <Link to="/cart" className="flex justify-center">Cart <img src={CartImage} className="w-4 mx-2"/> - {cartItems.length} items</Link>
-          {status ? <p>🟢 Online </p> : <p> 🔴 Offline</p>}
-          <Link to="">Login</Link>
+      <div className="w-[75%]">
+        <ul className="w-[100%] flex justify-around items-center">
+          <Link to="/" className="w-36 hover:font-semibold box-border">Home</Link>
+          <Link to="/aboutme" className="w-36 hover:font-semibold box-border">About Me</Link>
+          <Link to="/contactus" className="w-36 hover:font-semibold box-border">Contact Us</Link>
+          <Link to="/cart" className="w-36 flex justify-start hover:font-semibold box-border">Cart<img src={CartImage} className="w-4 mx-2 hover:font-semibold box-border"/> - {cartItems.length} items</Link>
+          {status ? <p className="w-36 hover:font-semibold box-border">🟢 Online </p> : <p className="w-36 hover:font-semibold box-border"> 🔴 Offline</p>}
+          <Link to="" className="w-36 hover:font-semibold box-border">Login</Link>
         </ul>
       </div>
     </div>
