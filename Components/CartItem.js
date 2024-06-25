@@ -14,7 +14,7 @@ const CartItem = ({ item }) => {
 
   return (
     <>
-      <div className="w-10/12 h-[250px] flex justify-around">
+      <div className="w-8/12 max-w-[720px] my-2 flex justify-around">
         <div className="w-[78%] flex flex-col ">
           <div className="flex gap-x-2">
             <img
@@ -27,33 +27,33 @@ const CartItem = ({ item }) => {
             />
             {item?.card?.info?.bestseller && <p>Bestseller</p>}
           </div>
-          <p>{item?.card?.info?.name}</p>
+          <p className="font-bold text-base">{item?.card?.info?.name}</p>
 
           {item.card.info.price ? (
-            <p>₹ {item.card.info.price / 100}</p>
+            <p className="font-bold text-base">₹ {item.card.info.price / 100}</p>
           ) : (
-            <p>₹ {item.card.info.defaultPrice / 100}</p>
+            <p className="font-bold text-base">₹ {item.card.info.defaultPrice / 100}</p>
           )}
 
           {item?.card?.info?.ratings?.aggregatedRating?.rating ? (
             <div className="flex gap-x-2">
               <img src={Star} className="w-4" />
               <p>
-                {item?.card?.info?.ratings?.aggregatedRating?.rating} (
-                {item?.card?.info?.ratings?.aggregatedRating?.ratingCountV2})
+                <span className="font-bold text-base">{item?.card?.info?.ratings?.aggregatedRating?.rating} </span>
+                ({item?.card?.info?.ratings?.aggregatedRating?.ratingCountV2})
               </p>
             </div>
           ) : (
             ""
           )}
 
-          <p>{item?.card?.info?.description}</p>
+          <p className="text-sm">{item?.card?.info?.description}</p>
         </div>
 
-        <div className="w-40  flex flex-col justify-center gap-y-8">
+        <div className="w-40  flex flex-col gap-y-4">
           {item?.card?.info?.imageId ? (
             <img
-              className="w-36 h-36  mx-auto rounded-xl object-cover"
+              className="w-36 h-36  mx-auto rounded-xl object-cover shadow-sm"
               src={CLOUDINARY_CDN_URL + item?.card?.info?.imageId}
             ></img>
           ) : (
@@ -61,7 +61,7 @@ const CartItem = ({ item }) => {
           )}
 
           <button
-            className="px-3 py-1 bg-green-500 w-32 mx-auto"
+            className="px-3 py-1 bg-red-400 w-32 mx-auto rounded-lg"
             onClick={() => {
               removeItemFromCart(item);
             }}
@@ -70,7 +70,7 @@ const CartItem = ({ item }) => {
           </button>
         </div>
       </div>
-      <div className=" h-1 bg-gray-400 my-2"></div>
+      <div className="w-8/12 max-w-[720px]~ h-1 bg-gray-400 my-2"></div>
     </>
   );
 };

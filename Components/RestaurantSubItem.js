@@ -9,8 +9,8 @@ const RestaurantSubItem = ({ index, isVisible, item, setIsVisible }) => {
     <>
       {item.card.card.title ? (
         <div className="my-4">
-          <div className="flex gap-x-5 ">
-            <p>{item.card.card.title}</p>
+          <div className="flex justify-between mb-2">
+            <p className="font-bold text-base">{item.card.card.title} ({foodItem_Array.length})</p>
 
             {isVisible == index ? (
               <img
@@ -18,7 +18,7 @@ const RestaurantSubItem = ({ index, isVisible, item, setIsVisible }) => {
                 onClick={() => {
                   setIsVisible(-1);
                 }}
-                className="w-2"
+                className="w-2.5"
               />
             ) : (
               <img
@@ -26,10 +26,13 @@ const RestaurantSubItem = ({ index, isVisible, item, setIsVisible }) => {
                 onClick={() => {
                   setIsVisible(index);
                 }}
-                className="w-2"
+                className="w-2.5"
               />
             )}
           </div>
+
+          <div className="w-5/10 border "></div>
+
           <div>
             {isVisible == index && (
               <>

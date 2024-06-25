@@ -16,10 +16,10 @@ const Cart = () => {
   if(cartItems.length == 0) return <EmptyCart />
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <h1>Welcome to your Cart</h1>
+    <div className="flex flex-col justify-center items-center w-10/12 max-w-[1080px] mx-auto my-8">
+      <h1 className="font-bold text-lg my-4"> Welcome to your Cart</h1>
 
-      <button className="w-32 h-10 bg-red-500" onClick={() => clearCartItem()}>
+      <button className="w-32 h-10 px-3 py-1 bg-red-400  mx-auto rounded-lg" onClick={() => clearCartItem()}>
         Clear cart
       </button>
 

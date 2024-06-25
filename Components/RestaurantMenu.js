@@ -27,56 +27,63 @@ const RestaurantMenu = () => {
   }
 
   return (
-    <>
+    <div className="w-10/12 max-w-[1080px] mx-auto my-8">
       {restaurantInfo.length === 0 ? (
         <p>Shimmer Ui loading...</p>
       ) : (
         <div>
           {/* {console.log(restaurantInfo)}
           {console.log(restaurntMenu)} */}
-          <p>{restaurantInfo.name}</p>
-          <div className="flex  gap-x-7">
-            <div className="w-[300px] h-[200px]">
+          <div className="text-xl font-semibold my-6">
+            <p className="text-center">{restaurantInfo.name}</p>
+          </div>
+
+          <div className="w-7/12 max-w-[1000px] flex gap-x-3 mx-auto justify-around my-4">
+            <div className="">
               <img
                 src={CLOUDINARY_CDN_URL + restaurantInfo.cloudinaryImageId}
-                className="w-[300px] h-[200px]"
+                className="w-[273px]  max-h-[182px] rounded-2xl shadow-md object-cover"
               ></img>
             </div>
 
             <div>
-              <div className="flex gap-x-2">
+              <div className="flex gap-x-1.5 font-bold text-base">
                 <img src={Star} className="w-5" />
                 <p>{restaurantInfo.avgRating}</p>
                 <p>({restaurantInfo.totalRatingsString}) · </p>
                 <p>{restaurantInfo.costForTwoMessage}</p>
               </div>
 
-              <p>{restaurantInfo.cuisines.join(", ")}</p>
+              <p className="text-base leading-tight py-1">{restaurantInfo.cuisines.join(", ")}</p>
 
-              <p>{restaurantInfo.locality}</p>
+              <p className="text-base leading-tight py-1">{restaurantInfo.locality}</p>
 
-              <p>{restaurantInfo.sla.slaString}</p>
+              <p className="text-base leading-tight py-1">{restaurantInfo.sla.slaString}</p>
 
-              <div className="flex">
+              <div className="flex text-base leading-tight py-1">
+
                 <img src={Bike} className="w-5"></img>
                 {restaurantInfo.sla.lastMileTravelString}
                 <p>|</p>
-                { restaurantInfo.feeDetails.totalFee ? 
-                <p>
-                  
-                  ₹ {restaurantInfo.feeDetails.totalFee / 100} Delivery fee will
-                  apply
-                </p> : <p>Free Delivery</p>}
-                
+                {restaurantInfo.feeDetails.totalFee ? (
+                  <p>
+                    ₹ {restaurantInfo.feeDetails.totalFee / 100} Delivery fee
+                    will apply
+                  </p>
+                ) : (
+                  <p>Free Delivery</p>
+                )}
               </div>
+
+              
             </div>
           </div>
-
-
-          <RestaurantItem restaurntMenu = {restaurntMenu}/>
+          <div className="w-full border"></div>
+          
+          <RestaurantItem restaurntMenu={restaurntMenu} />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
