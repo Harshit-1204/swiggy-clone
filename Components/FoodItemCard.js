@@ -5,7 +5,6 @@ import Star from "../Assets/star-solid.svg";
 import { useState } from "react";
 import { addItem, deleteItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
-
 const FoodItemCard = ({ item }) => {
 
   const dispatch = useDispatch();

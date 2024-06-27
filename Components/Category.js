@@ -61,7 +61,7 @@ const Category = (props) => {
       <div className="flex justify-between">
         <div>
           {/* Title of carosel */}
-          <h1 className="font-bold text-2xl">{props.items.header.title}</h1>
+          <p className="font-bold text-2xl">{props.items.header.title}</p>
         </div>
 
         <div className="flex gap-x-5">

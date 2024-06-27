@@ -4,6 +4,7 @@ import { RESTAURANT_INFO_URL, CLOUDINARY_CDN_URL } from "../constants";
 import Star from "../Assets/star-solid.svg";
 import Bike from "../Assets/person-biking-solid.svg";
 import RestaurantItem from "./RestaurantItem";
+import ShimmerRestaurantMenu from "./ShimmerRestaurantMenu";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
@@ -27,9 +28,9 @@ const RestaurantMenu = () => {
   }
 
   return (
-    <div className="w-10/12 max-w-[1080px] mx-auto my-8">
+    <div className="w-10/12 max-w-[1080px] mx-auto my-8 min-h-screen">
       {restaurantInfo.length === 0 ? (
-        <p>Shimmer Ui loading...</p>
+        <ShimmerRestaurantMenu />
       ) : (
         <div>
           {/* {console.log(restaurantInfo)}
@@ -60,7 +61,7 @@ const RestaurantMenu = () => {
 
               <p className="text-base leading-tight py-1">{restaurantInfo.sla.slaString}</p>
 
-              <div className="flex text-base leading-tight py-1">
+              <div className="flex text-base leading-tight py-1 gap-x-1">
 
                 <img src={Bike} className="w-5"></img>
                 {restaurantInfo.sla.lastMileTravelString}

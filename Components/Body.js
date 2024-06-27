@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Category from "./Category";
 import RestaurantChainInCity from "./RestaurantChainInCity";
 import RestaurantCard from "./RestaurantCard";
+import Shimmerbody from "./ShimmerBody";
 
 const Body = () => {
   useEffect(() => {
@@ -44,10 +45,9 @@ const Body = () => {
     setFilteredRestaurant(data);
   }
 
-  return (
-    <div className="w-10/12 max-w-[1080px] mx-auto my-8">
-      
-
+  return (<>
+    { allRestaurant.length == 0 ? <Shimmerbody /> :
+      <div className="w-10/12 max-w-[1080px] mx-auto my-8">
       {/* {What is in your mind} */}
       {categoryOfFood.length === 0 ? "" : <Category items={categoryOfFood} />}
 
@@ -85,7 +85,8 @@ const Body = () => {
         )}
       </div>
     </div>
-  );
+    }
+  </>);
 };
 
 export default Body;

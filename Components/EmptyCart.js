@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import CartImage from "../Assets/cart-shopping-solid.svg";
 
 const EmptyCart = () =>{
-    return <div className="flex flex-col justify-center items-center gap-y-8 mt-20">
+    return <div className="flex flex-col justify-center items-center gap-y-8 h-screen">
         <p className="font-bold text-3xl">Welcome to your cart</p>
 
         <img src={CartImage} className="w-16 "/>

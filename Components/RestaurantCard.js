@@ -7,7 +7,6 @@ const RestaurantCard = ({ item }) => {
   const cuisines = item?.info?.cuisines.join(", ");
   const restaurantName = item?.info?.name;
 
-  console.log(item);
 
   return (
     <div className="min-w-[273px] max-w-[273px] min-h-[284px] mx-3 hover:scale-105 transition ease-in-out duration-300 my-4 rounded-2xl ">

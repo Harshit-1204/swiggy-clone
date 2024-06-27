@@ -18,7 +18,7 @@ const RestaurantSubItem = ({ index, isVisible, item, setIsVisible }) => {
                 onClick={() => {
                   setIsVisible(-1);
                 }}
-                className="w-2.5"
+                className="w-2.5 cursor-pointer"
               />
             ) : (
               <img
@@ -26,7 +26,7 @@ const RestaurantSubItem = ({ index, isVisible, item, setIsVisible }) => {
                 onClick={() => {
                   setIsVisible(index);
                 }}
-                className="w-2.5"
+                className="w-2.5 cursor-pointer"
               />
             )}
           </div>

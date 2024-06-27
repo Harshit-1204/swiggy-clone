@@ -7,7 +7,8 @@ import Cart from "./Cart";
 import RestaurantMenu from "./RestaurantMenu";
 import FoodItem from "./FoodItem";
 import appStore from "../utils/appStore";
-
+import Payment from "./Payment";
+import PaymentSuccessfull from './PaymentSuccessfull';
 import { BrowserRouter, createBrowserRouter, Outlet } from "react-router-dom";
 import AboutMe from "./AboutMe";
 import FoodItem from "./FoodItem";
@@ -47,6 +48,12 @@ export const appRouter = createBrowserRouter([
       },{
         path: "/fooditem/:id",
         element: <FoodItem />
+      },{
+        path: "/checkout",
+        element: <Payment />
+      },{
+        path: "/payment-successful",
+        element: <PaymentSuccessfull />
       }
     ],
   },
