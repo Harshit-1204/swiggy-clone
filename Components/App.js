@@ -7,11 +7,13 @@ import Cart from "./Cart";
 import RestaurantMenu from "./RestaurantMenu";
 import FoodItem from "./FoodItem";
 import appStore from "../utils/appStore";
+import SwiggyMart from "./SwiggyMart";
 import Payment from "./Payment";
 import PaymentSuccessfull from './PaymentSuccessfull';
 import { BrowserRouter, createBrowserRouter, Outlet } from "react-router-dom";
 import AboutMe from "./AboutMe";
 import FoodItem from "./FoodItem";
+import ErrorElement from "./ErrorElement";
 import { Provider } from "react-redux";
 
 const App = () => {
@@ -29,13 +31,14 @@ export const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorElement />,
     children: [
       {
         path: "/",
         element: <Body />,
       },{
         path: "/aboutme",
-        element: <AboutMe />
+        element: <SwiggyMart />
       },{
         path: "/contactus",
         element: <ContactUs />

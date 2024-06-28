@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
   }
 
   return (
-    <div className="w-10/12 max-w-[1080px] mx-auto my-8 min-h-screen">
+    <div className="w-11/12 max-w-[1080px] mx-auto my-8 min-h-screen">
       {restaurantInfo.length === 0 ? (
         <ShimmerRestaurantMenu />
       ) : (
@@ -39,29 +39,31 @@ const RestaurantMenu = () => {
             <p className="text-center">{restaurantInfo.name}</p>
           </div>
 
-          <div className="w-7/12 max-w-[1000px] flex gap-x-3 mx-auto justify-around my-4">
-            <div className="">
+          <div className="w-7/12 max-w-[1000px] flex flex-col md:flex-row md:gap-x-3 mx-auto justify-around my-4">
+            <div className="mx-auto">
               <img
                 src={CLOUDINARY_CDN_URL + restaurantInfo.cloudinaryImageId}
                 className="w-[273px]  max-h-[182px] rounded-2xl shadow-md object-cover"
               ></img>
             </div>
 
-            <div>
-              <div className="flex gap-x-1.5 font-bold text-base">
-                <img src={Star} className="w-5" />
+            <div className="mt-3 md:mt-0">
+              <div className="flex gap-x-1 lg:gap-x-1.5 font-bold text-sm lg:text-base justify-center md:justify-start">
+                <img src={Star} className="w-3 lg:w-5" />
                 <p>{restaurantInfo.avgRating}</p>
                 <p>({restaurantInfo.totalRatingsString}) · </p>
-                <p>{restaurantInfo.costForTwoMessage}</p>
+                <p className="hidden lg:block">{restaurantInfo.costForTwoMessage}</p>
               </div>
 
-              <p className="text-base leading-tight py-1">{restaurantInfo.cuisines.join(", ")}</p>
+              <p className="block lg:hidden text-center md:text-start">{restaurantInfo.costForTwoMessage}</p>
+              
+              <p className="text-base leading-tight py-1 text-center md:text-start">{restaurantInfo.cuisines.join(", ")}</p>
 
-              <p className="text-base leading-tight py-1">{restaurantInfo.locality}</p>
+              <p className="text-base leading-tight py-1 text-center md:text-start">{restaurantInfo.locality}</p>
 
-              <p className="text-base leading-tight py-1">{restaurantInfo.sla.slaString}</p>
+              <p className="text-base leading-tight py-1 text-center md:text-start">{restaurantInfo.sla.slaString}</p>
 
-              <div className="flex text-base leading-tight py-1 gap-x-1">
+              <div className="flex text-base leading-tight py-1 gap-x-1 text-center md:text-start">
 
                 <img src={Bike} className="w-5"></img>
                 {restaurantInfo.sla.lastMileTravelString}

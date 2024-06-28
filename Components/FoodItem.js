@@ -30,7 +30,7 @@ const FoodItem = () => {
       <div className="w-full h-[1px] bg-gray-400 my-4"></div>
       <p className="font text-lg">Restaurants to explore</p>
 
-      <div className="flex flex-wrap justify-between gap-y-3">
+      <div className="flex flex-wrap justify-center md:justify-between gap-y-3">
         {restaurants.map((item) => {
           // console.log(item.card.card);
           if (item?.card?.card?.info)

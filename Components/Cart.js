@@ -20,7 +20,7 @@ const Cart = () => {
     <div className="flex flex-col items-center w-10/12 max-w-[1080px] mx-auto my-8 min-h-screen ">
       <p className="font-bold text-lg my-4"> Welcome to your Cart</p>
 
-      <button className="w-32 h-10 px-3 py-1 bg-red-400  mx-auto rounded-lg" onClick={() => clearCartItem()}>
+      <button className="w-32 h-10 px-3 py-1 bg-red-400  mx-auto rounded-lg my-2" onClick={() => clearCartItem()}>
         Clear cart
       </button>
 

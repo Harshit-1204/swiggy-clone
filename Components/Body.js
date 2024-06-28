@@ -3,6 +3,7 @@ import Category from "./Category";
 import RestaurantChainInCity from "./RestaurantChainInCity";
 import RestaurantCard from "./RestaurantCard";
 import Shimmerbody from "./ShimmerBody";
+import { ALL_RESTAURANT_URL } from "../constants";
 
 const Body = () => {
   useEffect(() => {
@@ -10,9 +11,7 @@ const Body = () => {
   }, []);
 
   async function fetchAllRestaurantDetail() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560"
-    );
+    const data = await fetch(ALL_RESTAURANT_URL);
     const json = await data.json();
 
     setAllRestaurant(
@@ -36,57 +35,75 @@ const Body = () => {
   const [restaurantChainInCity, setRestaurantChainInCity] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
-  const handleSearch = (text) =>{
-    const data = allRestaurant.filter((restaurant)=>{
+  const handleSearch = (text) => {
+    const data = allRestaurant.filter((restaurant) => {
       console.log(restaurant.info.name.toLowerCase());
-      return (restaurant.info.name.toLowerCase().includes(text.toLowerCase())); 
-    }) 
+      return restaurant.info.name.toLowerCase().includes(text.toLowerCase());
+    });
     console.log(data);
     setFilteredRestaurant(data);
-  }
+  };
 
-  return (<>
-    { allRestaurant.length == 0 ? <Shimmerbody /> :
-      <div className="w-10/12 max-w-[1080px] mx-auto my-8">
-      {/* {What is in your mind} */}
-      {categoryOfFood.length === 0 ? "" : <Category items={categoryOfFood} />}
-
-      {/* {Top Restaurant in Mumbai } */}
-      {restaurantChainInCity.length === 0 ? (
-        ""
+  return (
+    <>
+      {allRestaurant.length == 0 ? (
+        <Shimmerbody />
       ) : (
-        <RestaurantChainInCity items={restaurantChainInCity} />
+        <div className="w-11/12 max-w-[1080px] mx-auto my-8">
+          {/* {What is in your mind} */}
+          {categoryOfFood.length === 0 ? (
+            ""
+          ) : (
+            <Category items={categoryOfFood} />
+          )}
+
+          {/* {Top Restaurant in Mumbai } */}
+          {restaurantChainInCity.length === 0 ? (
+            ""
+          ) : (
+            <RestaurantChainInCity items={restaurantChainInCity} />
+          )}
+
+          {/* {All Filtered Restaurant} */}
+
+          <p className="my-5 md:my-10 font-bold text-base md:text-2xl text-center md:text-left">
+            Restaurants with online food delivery in Mumbai
+          </p>
+
+          <div className="flex justify-evenly items-center md:justify-start gap-x-6 pb-3">
+            <input
+              type="text"
+              className="border border-orange-500 rounded-lg py-1 px-4 text-black-400"
+              placeholder="Search restaurant..."
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+                handleSearch(e.target.value);
+              }}
+            />
+            <button
+              className="border mx-2 rounded-lg py-1 px-4 bg-orange-300"
+              onClick={handleSearch}
+            >
+              Search
+            </button>
+          </div>
+
+          <div className="flex flex-wrap justify-around">
+            {filteredRestaurant.length === 0 ? (
+              <h1>No Restaurant found</h1>
+            ) : (
+              filteredRestaurant.map((restaurant) => {
+                return (
+                  <RestaurantCard item={restaurant} key={restaurant.info.id} />
+                );
+              })
+            )}
+          </div>
+        </div>
       )}
-
-      {/* {All Filtered Restaurant} */}
-
-      <p className="my-10 font-bold text-2xl">Restaurants with online food delivery in Mumbai</p>
-      <input
-        type="text"
-        className="border border-orange-500 rounded-lg py-1 px-4 text-black-400"
-        placeholder="Search restaurant..."
-        value={searchText}
-        onChange={(e) => {
-          setSearchText(e.target.value);
-          handleSearch(e.target.value);
-        }}
-      />
-      <button className="border mx-2 rounded-lg py-1 px-4 bg-orange-300" onClick={handleSearch}>Search</button>
-
-      <div className="flex flex-wrap justify-around my-2">
-        {filteredRestaurant.length === 0 ? (
-          <h1>No Restaurant found</h1>
-        ) : (
-          filteredRestaurant.map((restaurant) => {
-            return (
-              <RestaurantCard item={restaurant} key={restaurant.info.id} />
-            );
-          })
-        )}
-      </div>
-    </div>
-    }
-  </>);
+    </>
+  );
 };
 
 export default Body;

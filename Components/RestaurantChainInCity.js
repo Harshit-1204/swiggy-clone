@@ -56,18 +56,18 @@ const RestaurantChainInCity = (props) => {
   }, []);
 
   return (
-    <div className="py-12 border-b border-gray-300">
+    <div className="py-6 md:py-12 border-b border-gray-300">
       <div className="flex justify-between pb-6">
         <div>
           {/* Title of carosel */}
-          <h1 className="font-bold text-2xl">{props.items.header.title}</h1>
+          <h1 className="font-bold text-base md:text-2xl">{props.items.header.title}</h1>
         </div>
 
         <div className="flex gap-x-5">
           {/* Left Button */}
           <img
             src={LeftArrow}
-            className={`rounded-full w-10 border-4 border-black ${
+            className={`rounded-full w-5 md:w-10 border-4 border-black ${
               isLeftEnd ? "opacity-50" : "opacity-100 cursor-pointer"
             }`}
             onClick={scrollLeft}
@@ -76,7 +76,7 @@ const RestaurantChainInCity = (props) => {
           {/* Right Button */}
           <img
             src={RightArrow}
-            className={`rounded-full w-10 border-4 border-black ${
+            className={`rounded-full w-5 md:w-10 border-4 border-black ${
               isRightEnd ? "opacity-50" : "opacity-100 cursor-pointer"
             }`}
             onClick={scrollRight}

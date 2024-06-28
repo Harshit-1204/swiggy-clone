@@ -9,7 +9,7 @@ const RestaurantCard = ({ item }) => {
 
 
   return (
-    <div className="min-w-[273px] max-w-[273px] min-h-[284px] mx-3 hover:scale-105 transition ease-in-out duration-300 my-4 rounded-2xl ">
+    <div className="min-w-[273px] max-w-[273px] min-h-[160px] md:min-h-[284px] mx-3 hover:scale-105 transition ease-in-out duration-300 my-3 md:my-4 rounded-2xl ">
       <Link to={"/restaurant/" + item.info.id}>
         <div className="relative">
           <img

@@ -57,18 +57,18 @@ const Category = (props) => {
   }, []);
 
   return (
-    <div className="border-b border-gray-300 pb-12 ">
+    <div className="border-b border-gray-300 pb-4 md:pb-12 ">
       <div className="flex justify-between">
         <div>
           {/* Title of carosel */}
-          <p className="font-bold text-2xl">{props.items.header.title}</p>
+          <p className="font-bold text-base md:text-2xl">{props.items.header.title}</p>
         </div>
 
         <div className="flex gap-x-5">
           {/* Left Button */}
           <img
             src={LeftArrow}
-            className={`rounded-full w-10 border-4 border-black ${
+            className={`rounded-full w-5 md:w-10 border-4 border-black ${
               isLeftEnd ? "opacity-50" : "opacity-100 cursor-pointer"
             }`}
             onClick={scrollLeft}
@@ -77,7 +77,7 @@ const Category = (props) => {
           {/* Right Button */}
           <img
             src={RightArrow}
-            className={`rounded-full w-10 border-4 border-black ${
+            className={`rounded-full w-5 md:w-10 border-4 border-black ${
               isRightEnd ? "opacity-50" : "opacity-100 cursor-pointer"
             }`}
             onClick={scrollRight}
@@ -107,7 +107,7 @@ const Category = (props) => {
           return (
             <Link key={item.id} to={"/fooditem/" + collectionId}>
               <img
-                className="min-w-[144px]"
+                className="min-w-[100px] md:min-w-[144px]"
                 src={CATEGORY_CDN_URL + item?.imageId}
               ></img>
             </Link>

@@ -25,7 +25,7 @@ const Payment = () => {
 
 
   return (
-    <div className="flex flex-col justify-center items-center w-10/12 max-w-[1080px] mx-auto my-10">
+    <div className="flex flex-col items-center w-10/12 max-w-[1080px] mx-auto mt-16 h-screen">
       <p className="font-bold text-xl my-4">Hungry? Let's seal the deal!</p>
 
       <p className="font-bold text-lg my-4">Cart Items</p>
@@ -33,32 +33,32 @@ const Payment = () => {
       {cartItems.map((item) => {
         return (
           <>
-            <div className="w-[50%] flex justify-between gap-x-5 py-2">
-              <div className="flex gap-x-2">
+            <div className="w-[95%] lg:w-[50%] flex justify-between  py-2">
+              <div className="w-[70%] flex gap-x-1 md:gap-x-2">
                 <img
                   src={
                     item?.card?.info?.itemAttribute?.vegClassifier === "VEG"
                       ? Veg
                       : Non_veg
                   }
-                  className="w-4"
+                  className="w-2 md:w-4"
                 />
-                <p className="font-bold text-base">{item?.card?.info?.name}</p>
+                <p className="font-bold text-sm md:text-base">{item?.card?.info?.name}</p>
               </div>
-              <div className="font-bold text-base flex">
-                {item.quantity} X{" "}
+              <div className="w-[25%] font-bold text-sm md:text-base flex justify-end">
+                {item.quantity} X {" "}
                 {item.card.info.price ? (
-                  <p>
+                  <p className="pl-1">
                     {item.card.info.price / 100} {" ₹"}
                   </p>
                 ) : (
-                  <p>
+                  <p className="pl-1">
                     {item.card.info.defaultPrice / 100} {" ₹"}
                   </p>
                 )}
               </div>
             </div>
-            <div className="w-[50%] bg-slate-400 h-0.5"></div>
+            <div className="w-[95%] lg:w-[50%] bg-slate-400 h-0.5"></div>
           </>
         );
       })}
