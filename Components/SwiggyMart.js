@@ -9,12 +9,12 @@ const SwiggyMart = () => {
         <p class="text-xl md:text-4xl font-bold text-gray-800 mb-4">
           Page Under Construction
         </p>
-        <p class="text-base md:text-lg text-gray-600">
+        <p className="text-base md:text-lg text-gray-600">
           We're currently working on this page. Please check back later.
         </p>
       </div>
-      <div class="mt-8">
-        <Link href="/" class="border mx-2 text-sm md:text-base rounded-lg py-1 px-4 bg-orange-300 ">
+      <div className="mt-8">
+        <Link href="/" className="border mx-2 text-sm md:text-base rounded-lg py-1 px-4 bg-orange-300 ">
           Till Then Order Food From Fast Delivery
         </Link>
       </div>

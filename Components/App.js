@@ -37,7 +37,7 @@ export const appRouter = createBrowserRouter([
         path: "/",
         element: <Body />,
       },{
-        path: "/aboutme",
+        path: "/swiggymart",
         element: <SwiggyMart />
       },{
         path: "/contactus",

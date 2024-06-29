@@ -37,7 +37,7 @@ const Body = () => {
 
   const handleSearch = (text) => {
     const data = allRestaurant.filter((restaurant) => {
-      console.log(restaurant.info.name.toLowerCase());
+      // console.log(restaurant.info.name.toLowerCase());
       return restaurant.info.name.toLowerCase().includes(text.toLowerCase());
     });
     console.log(data);
@@ -91,7 +91,7 @@ const Body = () => {
 
           <div className="flex flex-wrap justify-around">
             {filteredRestaurant.length === 0 ? (
-              <h1>No Restaurant found</h1>
+              <p className="font-semibold text-base md:text-2xl text-center">No Restaurant found</p>
             ) : (
               filteredRestaurant.map((restaurant) => {
                 return (
