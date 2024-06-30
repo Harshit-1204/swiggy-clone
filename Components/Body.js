@@ -11,20 +11,29 @@ const Body = () => {
   }, []);
 
   async function fetchAllRestaurantDetail() {
-    const data = await fetch(ALL_RESTAURANT_URL);
-    const json = await data.json();
-
-    setAllRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    // console.log(
-    //   json?.data?.cards[0]?.card?.card
-    // );
-    setCategoryOfFood(json?.data?.cards[0]?.card?.card);
-    setRestaurantChainInCity(json?.data?.cards[1]?.card?.card);
+    try {
+      const data = await fetch(ALL_RESTAURANT_URL);
+      console.log(data);
+      if (!data.ok) {
+        throw new Error("Network data was not ok " + data.statusText);
+      }
+      const json = await data.json();
+      setAllRestaurant(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFilteredRestaurant(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      // console.log(
+      //   json?.data?.cards[0]?.card?.card
+      // );
+      setCategoryOfFood(json?.data?.cards[0]?.card?.card);
+      setRestaurantChainInCity(json?.data?.cards[1]?.card?.card);
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
 
     return;
   }
@@ -91,7 +100,9 @@ const Body = () => {
 
           <div className="flex flex-wrap justify-around">
             {filteredRestaurant.length === 0 ? (
-              <p className="font-semibold text-base md:text-2xl text-center">No Restaurant found</p>
+              <p className="font-semibold text-base md:text-2xl text-center">
+                No Restaurant found
+              </p>
             ) : (
               filteredRestaurant.map((restaurant) => {
                 return (

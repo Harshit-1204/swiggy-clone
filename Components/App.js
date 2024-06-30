@@ -9,7 +9,7 @@ import FoodItem from "./FoodItem";
 import appStore from "../utils/appStore";
 import SwiggyMart from "./SwiggyMart";
 import Payment from "./Payment";
-import PaymentSuccessfull from './PaymentSuccessfull';
+import PaymentSuccessfull from "./PaymentSuccessfull";
 import { BrowserRouter, createBrowserRouter, Outlet } from "react-router-dom";
 import AboutMe from "./AboutMe";
 import FoodItem from "./FoodItem";
@@ -17,13 +17,14 @@ import ErrorElement from "./ErrorElement";
 import { Provider } from "react-redux";
 
 const App = () => {
-  
   return (
-    <Provider store={appStore}>
-      <Header />
-      <Outlet />
-      <Footer />
-    </Provider>
+    <div className="overflow-x-hidden">
+      <Provider store={appStore}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </Provider>
+    </div>
   );
 };
 
@@ -36,28 +37,35 @@ export const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
-      },{
+      },
+      {
         path: "/swiggymart",
-        element: <SwiggyMart />
-      },{
+        element: <SwiggyMart />,
+      },
+      {
         path: "/contactus",
-        element: <ContactUs />
-      },{
+        element: <ContactUs />,
+      },
+      {
         path: "/cart",
-        element: <Cart />
-      },{
+        element: <Cart />,
+      },
+      {
         path: "/restaurant/:id",
-        element: <RestaurantMenu />
-      },{
+        element: <RestaurantMenu />,
+      },
+      {
         path: "/fooditem/:id",
-        element: <FoodItem />
-      },{
+        element: <FoodItem />,
+      },
+      {
         path: "/checkout",
-        element: <Payment />
-      },{
+        element: <Payment />,
+      },
+      {
         path: "/payment-successful",
-        element: <PaymentSuccessfull />
-      }
+        element: <PaymentSuccessfull />,
+      },
     ],
   },
 ]);

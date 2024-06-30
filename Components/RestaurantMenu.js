@@ -63,7 +63,7 @@ const RestaurantMenu = () => {
 
               <p className="text-base leading-tight py-1 text-center md:text-start">{restaurantInfo.sla.slaString}</p>
 
-              <div className="flex text-base leading-tight py-1 gap-x-1 text-center md:text-start">
+              <div className="flex text-base leading-tight py-1 gap-x-1 justify-center md:justify-start">
 
                 <img src={Bike} className="w-5"></img>
                 {restaurantInfo.sla.lastMileTravelString}
