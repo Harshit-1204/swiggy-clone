@@ -14,7 +14,8 @@ const FoodItem = () => {
   }, []);
 
   async function fetchRestaurants() {
-    const data = await fetch(CATEGORY_ITEM_CDN_URL + id);
+    const data = await fetch(`/api/fooditem/${id}`);
+
     const json = await data.json();
     serRestaurants(json?.data?.cards);
     console.log(json?.data?.cards);
@@ -24,7 +25,7 @@ const FoodItem = () => {
     <>
     {restaurants.length == 0 ? <ShimmerFoodItem /> :
     
-    <div className="w-10/12 max-w-[1080px] mx-auto my-8 h-screen">
+    <div className="w-10/12 max-w-[1080px] mx-auto my-8 h-full">
       <p className="font-bold text-3xl my-4">{restaurants[0]?.card?.card?.title}</p>
       <p className="font-semibold text-xl">{restaurants[0]?.card?.card?.description}</p>
       <div className="w-full h-[1px] bg-gray-400 my-4"></div>

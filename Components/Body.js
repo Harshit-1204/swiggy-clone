@@ -4,6 +4,7 @@ import RestaurantChainInCity from "./RestaurantChainInCity";
 import RestaurantCard from "./RestaurantCard";
 import Shimmerbody from "./ShimmerBody";
 import { ALL_RESTAURANT_URL } from "../constants";
+import axios from "axios";
 
 const Body = () => {
   useEffect(() => {
@@ -12,12 +13,10 @@ const Body = () => {
 
   async function fetchAllRestaurantDetail() {
     try {
-      const data = await fetch(ALL_RESTAURANT_URL);
-      console.log(data);
-      if (!data.ok) {
-        throw new Error("Network data was not ok " + data.statusText);
-      }
+      const data = await fetch(`/api/`);
       const json = await data.json();
+      //console.log(data);
+
       setAllRestaurant(
         json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
